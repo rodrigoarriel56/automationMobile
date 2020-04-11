@@ -4,53 +4,66 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import screens.base.BaseScreen;
-import suporte.Utils;
 
 public class CalcScreen extends BaseScreen {
 
 	public CalcScreen(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
-		if (!_btnSomar.isDisplayed()) {
-			throw new Exception("");
-		}
 	}
 
-	
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='plus']")
-	public MobileElement _btnSomar;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Abrir minha conta Midway']")
+	public MobileElement btnAbrirMinhaContaMidway;
 
-	
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='minus']")
-	public MobileElement _btnSubtrair;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar']")
+	public MobileElement btnEntrar;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='CPF']")
+	public MobileElement inputLabelCPF;
 	
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='multiply']")
-	public MobileElement _btnMultiplicar;
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Nome Completo']")
+	public MobileElement inputLabelNomeCompleto;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='divide']")
-	public MobileElement _btnDividir;
-	
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='delete']")
-	public MobileElement _btnDeletar;
-	
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='equals']")
-	public MobileElement _btnIgual;
-	
-	
-	public void clicarNumero(String num) {
-		driver.findElementByXPath("//android.widget.Button[contains(@text,'"+num+"')]").click();
+	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.EditText")
+	public MobileElement inputText;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Continuar']")
+	public MobileElement btnContinuar;
+
+	public void clicarBotaoMinhaConta() throws InterruptedException {
+		Thread.sleep(30000);
+		btnAbrirMinhaContaMidway.click();
+		Thread.sleep(1000);
+
+	}
+
+	public void clicarBotaoEntrar() throws InterruptedException {
+		Thread.sleep(10000);
+		btnEntrar.click();
+		Thread.sleep(1000);
+	}
+
+	public void escreverCpf(String CPF) throws InterruptedException {
+
+		inputLabelCPF.click();
+		Thread.sleep(1000);
+		inputText.sendKeys(CPF);
+
+	}
+
+	public void clicarContinuar() throws InterruptedException {
+		btnContinuar.click();
 	}
 	
-	public String pegarResultado() {
-		String text = driver.findElementById("com.android.calculator2:id/result").getText();
-		return text;
-	}
+	public void escreverNome(String NomeCompleto) throws InterruptedException {
+	try {
+		Thread.sleep(10000);
+		inputLabelNomeCompleto.click();
+		inputText.sendKeys(NomeCompleto);
+		Thread.sleep(1000);
+		clicarContinuar();
+		Thread.sleep(1000000);
+		}catch(Exception exe) {}
 	
-	public void somarInteiros() {
-		clicarNumero(Utils.obterMassaDados("um"));
-		_btnSomar.click();
-		clicarNumero(Utils.obterMassaDados("seis"));
-		_btnIgual.click();
 	}
 }

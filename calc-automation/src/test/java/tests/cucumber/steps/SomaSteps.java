@@ -1,10 +1,7 @@
 package tests.cucumber.steps;
 
-import org.junit.Assert;
-
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Entao;
 import screens.CalcScreen;
 import suporte.driver.ThreadDriver;
 
@@ -14,20 +11,25 @@ public class SomaSteps extends BaseSteps {
 		initializeCucumber();
 	}
 
-	@Dado("que estou com a calculadora aberta")
-	public void que_estou_com_a_calculadora_aberta() {
+	@Dado("que estou na tela abra sua conta midway")
+	public void que_estou_na_tela_abra_sua_conta_midway() throws Exception {
+		
+	new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoMinhaConta();
+
+} 
+
+	@Quando("clico em Abrir minha conta midway")
+	public void clico_em_abrir_minha_conta_midway() throws Exception {
+	    new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoEntrar(); 
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverCpf("38684831870");
+	    new CalcScreen(ThreadDriver.getTDriver()).clicarContinuar();
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
 
 	}
 
-	@Quando("somo dois numeros inteiros")
-	public void somo_dois_numeros_inteiros() throws Exception {
-		new CalcScreen(ThreadDriver.getTDriver()).somarInteiros();
-
-	}
-
-	@Entao("valido se o resultados obtido e igual ao esperado")
-	public void valido_se_o_resultados_obtido_e_igual_ao_esperado() throws Exception {
-		Assert.assertEquals("7", new CalcScreen(ThreadDriver.getTDriver()).pegarResultado());
-	}
+	//@Entao("conta simples aberta com sucesso")
+	//public void conta_simples_aberta_com_sucesso() throws Exception {
+    //Assert.assertEquals("7", new CalcScreen(ThreadDriver.getTDriver()).pegarResultado());
+	//}
 
 }

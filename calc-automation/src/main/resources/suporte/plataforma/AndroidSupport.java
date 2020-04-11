@@ -21,10 +21,10 @@ public class AndroidSupport implements IPlatform {
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("deviceName", "Android");
 		caps.setCapability("automationName", "UiAutomator2");
-		caps.setCapability("appPackage", "com.ctappium");
-		caps.setCapability("appActivity", "com.ctappium.MainActivity"); 
+	//	caps.setCapability("appPackage", "com.ctappium");
+		caps.setCapability("app", "C:\\GitMobile\\app-qa-release.apk"); 
 		caps.setCapability("autoGrantPermissions", true);
-		caps.setCapability("avd", "teste01");
+		caps.setCapability("avd", "teste01"); 
 		
 		ThreadDriver.setTDriver(new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), caps));
 		wait = new WebDriverWait(ThreadDriver.getTDriver(), 10);
