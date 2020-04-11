@@ -20,7 +20,7 @@ public class CalcScreen extends BaseScreen {
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='CPF']")
 	public MobileElement inputLabelCPF;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Nome Completo']")
 	public MobileElement inputLabelNomeCompleto;
 
@@ -40,12 +40,11 @@ public class CalcScreen extends BaseScreen {
 	public void clicarBotaoEntrar() throws InterruptedException {
 		Thread.sleep(10000);
 		btnEntrar.click();
-		Thread.sleep(1000);
+		btnEntrar.click();
 	}
 
 	public void escreverCpf(String CPF) throws InterruptedException {
 
-		inputLabelCPF.click();
 		Thread.sleep(1000);
 		inputText.sendKeys(CPF);
 
@@ -54,16 +53,14 @@ public class CalcScreen extends BaseScreen {
 	public void clicarContinuar() throws InterruptedException {
 		btnContinuar.click();
 	}
-	
+
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
-	try {
+
 		Thread.sleep(10000);
-		inputLabelNomeCompleto.click();
 		inputText.sendKeys(NomeCompleto);
+		Thread.sleep(100);
+		btnContinuar.click();
 		Thread.sleep(1000);
-		clicarContinuar();
-		Thread.sleep(1000000);
-		}catch(Exception exe) {}
-	
+
 	}
 }
