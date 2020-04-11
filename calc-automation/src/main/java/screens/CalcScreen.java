@@ -31,7 +31,7 @@ public class CalcScreen extends BaseScreen {
 	public MobileElement btnContinuar;
 
 	public void clicarBotaoMinhaConta() throws InterruptedException {
-		Thread.sleep(30000);
+		Thread.sleep(300000);
 		btnAbrirMinhaContaMidway.click();
 		Thread.sleep(1000);
 

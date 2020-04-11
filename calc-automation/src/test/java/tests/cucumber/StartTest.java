@@ -10,7 +10,7 @@ import suporte.driver.ThreadDriver;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/tests/cucumber/features/ContaSimples.feature", glue = "tests.cucumber.steps", tags = {"@INTEIROS"})
-public class StartSoma {
+public class StartTest {
 
 	@BeforeClass 
 	public static void setup() throws Exception {

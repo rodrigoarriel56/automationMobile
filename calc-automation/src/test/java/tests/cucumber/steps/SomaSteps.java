@@ -16,7 +16,7 @@ public class SomaSteps extends BaseSteps {
 		
 	new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoMinhaConta();
 
-} 
+}  
 
 	@Quando("clico em Abrir minha conta midway")
 	public void clico_em_abrir_minha_conta_midway() throws Exception {
