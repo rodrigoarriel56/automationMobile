@@ -11,14 +11,14 @@ public class SomaSteps extends BaseSteps {
 		initializeCucumber();
 	}
 
-	@Dado("que estou na tela abra sua conta midway") 
-	public void que_estou_na_tela_abra_sua_conta_midway() throws Exception {
+	@Dado("que estou no app conta midway") 
+	public void que_estou_no_app_conta_midway() throws Exception {
 		
 	   new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoEntrar();
 
 }  
 
-	@Quando("clico em Abrir minha conta midway")
+	@Quando("clico em abrir minha conta midway")
 	public void clico_em_abrir_minha_conta_midway() throws Exception {
 		
 		 
@@ -26,6 +26,11 @@ public class SomaSteps extends BaseSteps {
 	    new CalcScreen(ThreadDriver.getTDriver()).escreverCpf("38684831870");
 	    new CalcScreen(ThreadDriver.getTDriver()).clicarContinuar();
 	    new CalcScreen(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverComoQuerSerChamado("Rodrigo Deus");
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverCelular("11972563388");
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverEmail("rodrigo-florindo@hotmail.com");
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverDataNascimento("11121988");
+	    new CalcScreen(ThreadDriver.getTDriver()).clicarContinuarDadosPessoais();
 
 	}
 

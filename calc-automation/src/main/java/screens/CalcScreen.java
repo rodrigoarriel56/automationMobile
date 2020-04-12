@@ -25,10 +25,25 @@ public class CalcScreen extends BaseScreen {
 	public MobileElement inputLabelNomeCompleto;
 
 	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.EditText")
-	public MobileElement inputText;
+	public MobileElement inputTextCpf;
+
+	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.EditText")
+	public MobileElement inputTextNomeCompleto;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Continuar']")
 	public MobileElement btnContinuar;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[1]")
+	public MobileElement inputTexComoQuerSerChamado;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[2]")
+	public MobileElement inputTexCelular;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[3]")
+	public MobileElement inputTexEmail;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
+	public MobileElement inputTexDataNascimento;
 
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(300000);
@@ -46,7 +61,7 @@ public class CalcScreen extends BaseScreen {
 	public void escreverCpf(String CPF) throws InterruptedException {
 
 		Thread.sleep(1000);
-		inputText.sendKeys(CPF);
+		inputTextCpf.sendKeys(CPF);
 
 	}
 
@@ -57,10 +72,44 @@ public class CalcScreen extends BaseScreen {
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
 
 		Thread.sleep(10000);
-		inputText.sendKeys(NomeCompleto);
+		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		Thread.sleep(100);
 		btnContinuar.click();
 		Thread.sleep(1000);
 
 	}
+
+	public void escreverComoQuerSerChamado(String ComoQuerSerChamado) throws InterruptedException {
+
+		Thread.sleep(100);
+		inputTexComoQuerSerChamado.sendKeys(ComoQuerSerChamado);
+
+	}
+
+	public void escreverCelular(String Celular) throws InterruptedException {
+
+		Thread.sleep(100);
+		inputTexCelular.sendKeys(Celular);
+
+	}
+
+	public void escreverEmail(String Email) throws InterruptedException {
+
+		Thread.sleep(100);
+		inputTexEmail.sendKeys(Email);
+
+	}
+
+	public void escreverDataNascimento(String DataNascimento) throws InterruptedException {
+
+		Thread.sleep(100);
+		inputTexDataNascimento.sendKeys(DataNascimento);
+
+	} 
+
+	public void clicarContinuarDadosPessoais() throws InterruptedException {
+		scrollDown();
+		btnContinuar.click();
+	}
+
 }
