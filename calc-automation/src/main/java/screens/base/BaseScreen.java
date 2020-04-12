@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -40,29 +41,23 @@ public class BaseScreen {
 
 		Dimension size = getTDriver().manage().window().getSize();
 
-		int x = size.width / 2; 
+		int x = size.width / 2;
 
 		int start_y = (int) (size.height * inicio);
 
 		int end_y = (int) (size.height * fim);
 
 		TouchAction touchAction = new TouchAction(driver);
-		touchAction.tap(PointOption.point(1280, 1013)).perform()
+		touchAction.tap(PointOption.point(1280, 1013)).perform() 
 
-		.press(x, start_y)
-        .waitAction(Duration.ofMillis(500))
-        .moveTo(x, end_y)
-        .release()
-        .perform();
-		
+		.press(x, start_y).waitAction(Duration.ofMillis(500)).moveTo(x, end_y).release().perform();
 
 	}
-	
 	
 
 	public void scrollDown() {
 
-		scroll(0.9, 0.1);
+		scroll(0.9, 0.1); 
 
 	}
 
