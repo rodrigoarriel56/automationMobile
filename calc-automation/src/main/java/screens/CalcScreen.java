@@ -97,6 +97,7 @@ public class CalcScreen extends BaseScreen {
 
 		Thread.sleep(100);
 		inputTexEmail.sendKeys(Email);
+	
 
 	}
 
@@ -108,8 +109,9 @@ public class CalcScreen extends BaseScreen {
 	} 
 
 	public void clicarContinuarDadosPessoais() throws InterruptedException {
-		scrollDown();
-		btnContinuar.click();
+		
+		//moveToElement(btnContinuar);
+		btnContinuar.click(); 
 	}
 
 }
