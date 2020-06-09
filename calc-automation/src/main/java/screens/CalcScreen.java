@@ -66,11 +66,12 @@ public class CalcScreen extends BaseScreen {
 
 	public void clicarContinuar() throws InterruptedException {
 		btnContinuar.click();
+		Thread.sleep(100);
 	}
 
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
 
-		Thread.sleep(100);
+		
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		Thread.sleep(100);
 		btnContinuar.click();
@@ -104,7 +105,7 @@ public class CalcScreen extends BaseScreen {
 	} 
 
 	public void clicarContinuarDadosPessoais() throws Exception {
-		scrollBaixo(btnContinuar);
+		swipeVerticalParaBaixo();
 		btnContinuar.click(); 
 		Thread.sleep(10000);
 	}
