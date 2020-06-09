@@ -4,8 +4,11 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import screens.base.BaseScreen;
+import suporte.Utils;
 
 public class CalcScreen extends BaseScreen {
+	
+	
 
 	public CalcScreen(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
@@ -104,8 +107,11 @@ public class CalcScreen extends BaseScreen {
 
 	} 
 
+	@SuppressWarnings("unused")
 	public void clicarContinuarDadosPessoais() throws Exception {
-		swipeVerticalParaBaixo();
+		
+		Utils  util = new Utils();
+		Utils.swipeVerticalParaBaixo();
 		btnContinuar.click(); 
 		Thread.sleep(10000);
 	}
