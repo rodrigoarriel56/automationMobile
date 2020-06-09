@@ -3,9 +3,12 @@ package tests.cucumber.steps;
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Dado;
 import screens.CalcScreen;
+import screens.base.BaseScreen;
 import suporte.driver.ThreadDriver;
 
 public class SomaSteps extends BaseSteps {
+	
+	
 
 	public void initiliazeSteps() {
 		initializeCucumber();
@@ -14,7 +17,7 @@ public class SomaSteps extends BaseSteps {
 	@Dado("que estou no app conta midway") 
 	public void que_estou_no_app_conta_midway() throws Exception {
 		
-	   new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoEntrar();
+	   new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoMinhaConta();
 
 }  
 
@@ -23,7 +26,7 @@ public class SomaSteps extends BaseSteps {
 		
 		 
 	    new CalcScreen(ThreadDriver.getTDriver()).clicarBotaoEntrar(); 
-	    new CalcScreen(ThreadDriver.getTDriver()).escreverCpf("38684831870");
+	    new CalcScreen(ThreadDriver.getTDriver()).escreverCpf("40268015007");
 	    new CalcScreen(ThreadDriver.getTDriver()).clicarContinuar();
 	    new CalcScreen(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
 	    new CalcScreen(ThreadDriver.getTDriver()).escreverComoQuerSerChamado("Rodrigo Deus");

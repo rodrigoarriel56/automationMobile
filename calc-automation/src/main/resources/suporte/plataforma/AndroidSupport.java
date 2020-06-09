@@ -10,7 +10,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import suporte.driver.ThreadDriver;
 
-public class AndroidSupport implements IPlatform {
+public class AndroidSupport implements IPlatform { 
 
     public WebDriverWait wait;
 
@@ -24,7 +24,7 @@ public class AndroidSupport implements IPlatform {
 	//	caps.setCapability("appPackage", "com.ctappium");
 		caps.setCapability("app", "C:\\GitMobile\\App\\app-qa-release.apk"); 
 		caps.setCapability("autoGrantPermissions", true);
-		caps.setCapability("avd", "teste01"); 
+		caps.setCapability("avd", "teste01");  
 		
 		ThreadDriver.setTDriver(new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), caps));
 		wait = new WebDriverWait(ThreadDriver.getTDriver(), 10);

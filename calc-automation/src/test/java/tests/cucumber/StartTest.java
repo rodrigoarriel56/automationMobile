@@ -15,7 +15,7 @@ public class StartTest {
 	@BeforeClass 
 	public static void setup() throws Exception {
 		//Carregar parametros para a execução de toda feature
-	}
+	} 
 
 	@AfterClass 
 	public static void teardown() {

@@ -46,21 +46,20 @@ public class CalcScreen extends BaseScreen {
 	public MobileElement inputTexDataNascimento;
 
 	public void clicarBotaoMinhaConta() throws InterruptedException {
-		Thread.sleep(300000);
+		Thread.sleep(10000);
 		btnAbrirMinhaContaMidway.click();
 		Thread.sleep(1000);
 
 	}
 
 	public void clicarBotaoEntrar() throws InterruptedException {
-		Thread.sleep(10000);
-		btnEntrar.click();
+		Thread.sleep(1000);
 		btnEntrar.click();
 	}
 
 	public void escreverCpf(String CPF) throws InterruptedException {
 
-		Thread.sleep(1000);
+		Thread.sleep(100);  
 		inputTextCpf.sendKeys(CPF);
 
 	}
@@ -71,31 +70,28 @@ public class CalcScreen extends BaseScreen {
 
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
 
-		Thread.sleep(10000);
+		Thread.sleep(100);
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		Thread.sleep(100);
 		btnContinuar.click();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 
 	}
 
 	public void escreverComoQuerSerChamado(String ComoQuerSerChamado) throws InterruptedException {
 
-		Thread.sleep(100);
 		inputTexComoQuerSerChamado.sendKeys(ComoQuerSerChamado);
 
 	}
 
 	public void escreverCelular(String Celular) throws InterruptedException {
 
-		Thread.sleep(100);
 		inputTexCelular.sendKeys(Celular);
 
 	}
 
 	public void escreverEmail(String Email) throws InterruptedException {
 
-		Thread.sleep(100);
 		inputTexEmail.sendKeys(Email);
 	
 
@@ -103,15 +99,14 @@ public class CalcScreen extends BaseScreen {
 
 	public void escreverDataNascimento(String DataNascimento) throws InterruptedException {
 
-		Thread.sleep(100);
 		inputTexDataNascimento.sendKeys(DataNascimento);
 
 	} 
 
-	public void clicarContinuarDadosPessoais() throws InterruptedException {
-		
-		//moveToElement(btnContinuar);
+	public void clicarContinuarDadosPessoais() throws Exception {
+		scrollBaixo(btnContinuar);
 		btnContinuar.click(); 
+		Thread.sleep(10000);
 	}
 
 }
