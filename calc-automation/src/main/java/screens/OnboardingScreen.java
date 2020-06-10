@@ -109,7 +109,7 @@ public class OnboardingScreen extends BaseScreen {
 
 	public void clicarContinuarDadosPessoais() throws Exception {
 		
-        Utils.swipeVerticalParaBaixo();
+        Utils.swipe(0,9,0,1); 
 		btnContinuar.click(); 
 		Thread.sleep(10000);
 	}

@@ -6,7 +6,7 @@ import screens.OnboardingScreen;
 import screens.base.BaseScreen;
 import suporte.driver.ThreadDriver;
 
-public class SomaSteps extends BaseSteps {
+public class OnboardingSteps extends BaseSteps {
 	
 	
 
@@ -31,11 +31,11 @@ public class SomaSteps extends BaseSteps {
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverComoQuerSerChamado("Rodrigo Deus");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverCelular("11972563388");
-	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverEmail("rodrigo-florindo@hotmail.com");
+	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverEmail("rodrigo.florindo@gmail.com");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverDataNascimento("11121988");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).clicarContinuarDadosPessoais();
 
-	}
+	} 
 
 	//@Entao("conta simples aberta com sucesso")
 	//public void conta_simples_aberta_com_sucesso() throws Exception {

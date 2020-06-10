@@ -19,7 +19,8 @@ public class Utils {
 
 	static int contador = 0;
 	static int miliseconds = 400;
-	
+	private static AndroidDriver<MobileElement> driver;
+
 	@SuppressWarnings("rawtypes")
 	public static void swipeVerticalParaCima() throws Exception {
 
@@ -167,6 +168,9 @@ public class Utils {
 				.waitAction(new WaitOptions().withDuration(Duration.ofMillis(500)))
 				.moveTo(new PointOption().withCoordinates(endX, y)).release().perform();
 	}
+	
+	
+
 	
 	
 }
