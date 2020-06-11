@@ -3,10 +3,14 @@ package suporte;
 import static java.time.Duration.ofMillis;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 
 import constants.Globals;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -35,14 +39,29 @@ public class Utils {
 
 		Thread.sleep(Globals.TIMEOUT_SMALL);
 	}
+	
+	public static void swipeVerticalParaCimaNovo() throws Exception {
+
+		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
+		int widthStart = size.getWidth() / 2;
+		int heightStart = (int) (size.getHeight() * 0.3);
+		int heightFinished = (int) (size.getHeight() * 0.9);
+
+		TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
+		actions.press(PointOption.point(widthStart, heightStart))
+				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
+				.moveTo(PointOption.point(widthStart, heightFinished)).release().perform();
+
+		Thread.sleep(Globals.TIMEOUT_SMALL);
+	}
 
 	@SuppressWarnings("rawtypes")
 	public static void swipeVerticalParaBaixo() throws Exception {
 
 		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
 		int widthStart = size.getWidth() / 2;
-		int heightStart = (int) (size.getHeight() * 0.3);
-		int heightFinished = (int) (size.getHeight() * 0.9);
+		int heightStart = (int) (size.getHeight() * 0.9);
+		int heightFinished = (int) (size.getHeight() * 0.3); 
 
 		TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
 		actions.press(PointOption.point(widthStart, heightStart))
@@ -169,8 +188,29 @@ public class Utils {
 				.moveTo(new PointOption().withCoordinates(endX, y)).release().perform();
 	}
 	
+public static void swipeVertical(AppiumDriver<MobileElement> driver, double start, double end, double middle) {
+		
+		TouchAction action = new TouchAction(driver);
+		Dimension size = driver.manage().window().getSize();
+
+		int starty = (int) (size.height * start);
+		int endy = (int) (size.height * end);
+		int middlex = (int) (size.width / middle);
+
+		action.press(PointOption.point(middlex, starty))
+			.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(500)))
+				.moveTo(PointOption.point(middlex, endy)).release().perform();
+	}
+
+    public static void swipeJavaScript(AppiumDriver<MobileElement> driver){
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	Map<String, Object> params = new HashMap<String, Object>();
+	params.put("direction", "up");
+	js.executeScript("mobile: swipe", params);
+}
+}
+	
 	
 
 	
 	
-}
