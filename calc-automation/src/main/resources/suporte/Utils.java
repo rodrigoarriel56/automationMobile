@@ -68,7 +68,7 @@ public class Utils {
 				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
 				.moveTo(PointOption.point(widthStart, heightFinished)).release().perform();
 
-		Thread.sleep(Globals.TIMEOUT_SMALL);
+		Thread.sleep(Globals.TIMEOUT_SMALL); 
 	}
 
 	@SuppressWarnings("rawtypes")
