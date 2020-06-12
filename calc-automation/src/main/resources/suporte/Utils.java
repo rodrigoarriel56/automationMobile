@@ -100,16 +100,16 @@ public class Utils {
 	public static void swipeHorizontalParaDireita() throws Exception {
 
 		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
-		int widthStart = (int) (size.getWidth() * 0.3);
-		int heightStart = (size.getHeight() / 2);
-		int widthFinish = (int) (size.getWidth() * 0.9);
+		int widthStart = (int) (size.getHeight() / 2);
+		int heightStart = (int) (size.getWidth() * 0.90);
+		int widthFinish = (int) (size.getWidth() * 0.05);
 
 		TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
 		actions.press(PointOption.point(widthStart, heightStart))
 				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
 				.moveTo(PointOption.point(widthFinish, heightStart)).release().perform();
 
-		Thread.sleep(Globals.TIMEOUT_SMALL);
+		Thread.sleep(Globals.TIMEOUT_SMALL); 
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -205,9 +205,11 @@ public static void swipeVertical(AppiumDriver<MobileElement> driver, double star
     public static void swipeJavaScript(AppiumDriver<MobileElement> driver){
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	Map<String, Object> params = new HashMap<String, Object>();
-	params.put("direction", "up");
+	params.put("direction", "right");
 	js.executeScript("mobile: swipe", params);
 }
+    
+    
 }
 	
 	

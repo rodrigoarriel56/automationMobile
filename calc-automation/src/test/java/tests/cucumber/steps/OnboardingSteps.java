@@ -26,7 +26,7 @@ public class OnboardingSteps extends BaseSteps {
 		
 		 
 	    new OnboardingScreen(ThreadDriver.getTDriver()).clicarBotaoEntrar(); 
-	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverCpf("40268015007");
+	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverCpf("98051973011");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).clicarContinuar();
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
 	    new OnboardingScreen(ThreadDriver.getTDriver()).escreverComoQuerSerChamado("Rodrigo Deus");

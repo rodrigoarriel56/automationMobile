@@ -52,7 +52,7 @@ public class OnboardingScreen extends BaseScreen {
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(10000);
 		btnAbrirMinhaContaMidway.click();
-		Thread.sleep(1000);
+		Thread.sleep(1000); 
 
 	}
 
@@ -63,21 +63,19 @@ public class OnboardingScreen extends BaseScreen {
 
 	public void escreverCpf(String CPF) throws InterruptedException {
 
-		Thread.sleep(100);  
-		inputTextCpf.sendKeys(CPF);
+		Thread.sleep(10000);  
+		inputTextCpf.sendKeys(CPF); 
 
 	}
 
 	public void clicarContinuar() throws InterruptedException {
 		btnContinuar.click();
-		Thread.sleep(100);
+		Thread.sleep(1000);
 	}
 
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
 
-		
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
-		Thread.sleep(100);
 		btnContinuar.click();
 		Thread.sleep(10000);
 
@@ -110,6 +108,12 @@ public class OnboardingScreen extends BaseScreen {
 	public void clicarContinuarDadosPessoais() throws Exception {
 		
         Utils.swipeVerticalParaBaixo(); 
+		btnContinuar.click(); 
+		Thread.sleep(10000);
+		Utils.swipeHorizontalParaDireita();
+		Utils.swipeHorizontalParaDireita();
+		Utils.swipeHorizontalParaDireita();
+		Utils.swipeHorizontalParaDireita();
 		btnContinuar.click(); 
 		Thread.sleep(10000);
 	}
