@@ -5,12 +5,14 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import screens.base.BaseScreen;
+import suporte.Edition080_iOS_FaceId;
 import suporte.Utils;
 
 
 public class OnboardingScreen extends BaseScreen {
 	
-
+	Edition080_iOS_FaceId faceid = new Edition080_iOS_FaceId();
+	
 	public OnboardingScreen (AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
@@ -109,13 +111,12 @@ public class OnboardingScreen extends BaseScreen {
 		
         Utils.swipeVerticalParaBaixo(); 
 		btnContinuar.click(); 
-		Thread.sleep(10000);
-		Utils.swipeHorizontalParaDireita();
-		Utils.swipeHorizontalParaDireita();
-		Utils.swipeHorizontalParaDireita();
-		Utils.swipeHorizontalParaDireita();
+		Utils.swipeBiometriaFacial();
 		btnContinuar.click(); 
 		Thread.sleep(10000);
+		faceid.testIOSFaceId(); 
+		
+		
 	}
 
 }

@@ -2,12 +2,18 @@ package suporte;
 
 import static java.time.Duration.ofMillis;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+import com.google.common.collect.ImmutableMap;
 
 import constants.Globals;
 import io.appium.java_client.AppiumDriver;
@@ -39,7 +45,7 @@ public class Utils {
 
 		Thread.sleep(Globals.TIMEOUT_SMALL);
 	}
-	
+
 	public static void swipeVerticalParaCimaNovo() throws Exception {
 
 		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
@@ -61,14 +67,14 @@ public class Utils {
 		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
 		int widthStart = size.getWidth() / 2;
 		int heightStart = (int) (size.getHeight() * 0.9);
-		int heightFinished = (int) (size.getHeight() * 0.3); 
+		int heightFinished = (int) (size.getHeight() * 0.3);
 
 		TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
 		actions.press(PointOption.point(widthStart, heightStart))
 				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
 				.moveTo(PointOption.point(widthStart, heightFinished)).release().perform();
 
-		Thread.sleep(Globals.TIMEOUT_SMALL); 
+		Thread.sleep(Globals.TIMEOUT_SMALL);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -109,7 +115,7 @@ public class Utils {
 				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
 				.moveTo(PointOption.point(widthFinish, heightStart)).release().perform();
 
-		Thread.sleep(Globals.TIMEOUT_SMALL); 
+		Thread.sleep(Globals.TIMEOUT_SMALL);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -187,9 +193,9 @@ public class Utils {
 				.waitAction(new WaitOptions().withDuration(Duration.ofMillis(500)))
 				.moveTo(new PointOption().withCoordinates(endX, y)).release().perform();
 	}
-	
-public static void swipeVertical(AppiumDriver<MobileElement> driver, double start, double end, double middle) {
-		
+
+	public static void swipeVertical(AppiumDriver<MobileElement> driver, double start, double end, double middle) {
+
 		TouchAction action = new TouchAction(driver);
 		Dimension size = driver.manage().window().getSize();
 
@@ -197,22 +203,36 @@ public static void swipeVertical(AppiumDriver<MobileElement> driver, double star
 		int endy = (int) (size.height * end);
 		int middlex = (int) (size.width / middle);
 
-		action.press(PointOption.point(middlex, starty))
-			.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(500)))
+		action.press(PointOption.point(middlex, starty)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(500)))
 				.moveTo(PointOption.point(middlex, endy)).release().perform();
 	}
 
-    public static void swipeJavaScript(AppiumDriver<MobileElement> driver){
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	Map<String, Object> params = new HashMap<String, Object>();
-	params.put("direction", "right");
-	js.executeScript("mobile: swipe", params);
-}
-    
-    
-}
-	
-	
+	public static void swipeJavaScript(AppiumDriver<MobileElement> driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("direction", "right");
+		js.executeScript("mobile: swipe", params);
+	}
 
+	@SuppressWarnings("rawtypes")
+	public static void swipeBiometriaFacial() throws Exception {
+
+		for (int x = 0; x <= 6; x++) {
+
+			Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
+			int widthStart = (int) (size.getHeight() / 2);
+			int heightStart = (int) (size.getWidth() * 0.90);
+			int widthFinish = (int) (size.getWidth() * 0.05);
+
+			TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
+			actions.press(PointOption.point(widthStart, heightStart))
+					.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds)))
+					.moveTo(PointOption.point(widthFinish, heightStart)).release().perform();
+
+			Thread.sleep(Globals.TIMEOUT_SMALL);
+		}
+
+	}
 	
 	
+}
