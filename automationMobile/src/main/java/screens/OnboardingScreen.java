@@ -1,17 +1,28 @@
 package screens;
 
 
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Test;
+
+import com.google.common.collect.ImmutableMap;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import screens.base.BaseScreen;
-import suporte.Edition080_iOS_FaceId;
+import suporte.FaceIdTest;
 import suporte.Utils;
 
 
 public class OnboardingScreen extends BaseScreen {
 	
-	Edition080_iOS_FaceId faceid = new Edition080_iOS_FaceId();
+	@SuppressWarnings("rawtypes")
+	AppiumDriver driver;
+	
+	FaceIdTest faceid = new FaceIdTest();
 	
 	public OnboardingScreen (AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
@@ -101,22 +112,27 @@ public class OnboardingScreen extends BaseScreen {
 	
 	}
 
-	public void escreverDataNascimento(String DataNascimento) throws InterruptedException {
+	public void escreverDataNascimento(String DataNascimento) throws Exception {
 
 		inputTexDataNascimento.sendKeys(DataNascimento);
-
+		Utils.swipeVerticalParaBaixo(); 
+		btnContinuar.click(); 
 	} 
 
-	public void clicarContinuarDadosPessoais() throws Exception {
+	public void swipeScreenFaceId() throws Exception {
 		
-        Utils.swipeVerticalParaBaixo(); 
-		btnContinuar.click(); 
+       
 		Utils.swipeBiometriaFacial();
 		btnContinuar.click(); 
-		Thread.sleep(10000);
-		faceid.testIOSFaceId(); 
+//		faceid.testFaceId();
 		
-		
-	}
+        driver.executeScript("mobile:enrollBiometric", ImmutableMap.of("isEnabled", true));
 
+        //Perform passing faceid authentication
+        driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", true));
+
+        //Perform failing faceid authentication
+        driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", false));
+			
+	}
 }
