@@ -61,6 +61,11 @@ public class OnboardingScreen extends BaseScreen {
 
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
 	public MobileElement inputTexDataNascimento;
+	
+	@AndroidFindBy(xpath = "//android.view.ViewGroup[2]")
+	public MobileElement touchId;
+	
+	//android.view.ViewGroup[2]
 
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(10000);
@@ -121,18 +126,15 @@ public class OnboardingScreen extends BaseScreen {
 
 	public void swipeScreenFaceId() throws Exception {
 		
-       
 		Utils.swipeBiometriaFacial();
 		btnContinuar.click(); 
-//		faceid.testFaceId();
+		Thread.sleep(1000);
 		
-        driver.executeScript("mobile:enrollBiometric", ImmutableMap.of("isEnabled", true));
+		touchId.click();
+		Thread.sleep(1000);
+		btnContinuar.click(); 
+		Thread.sleep(10000);
+		
 
-        //Perform passing faceid authentication
-        driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", true));
-
-        //Perform failing faceid authentication
-        driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", false));
-			
 	}
 }

@@ -14,39 +14,38 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class FaceIdTest {
-	
+
 	@SuppressWarnings("rawtypes")
-	AppiumDriver driver;
-    
-    @SuppressWarnings("rawtypes")
+	
+
 	@Test
-    public void testFaceId() throws Exception{
-    	
-    	DesiredCapabilities caps = new DesiredCapabilities();
-    	caps.setCapability("platformName", "Android");
-		caps.setCapability("deviceName", "emulator-5554");
-		caps.setCapability("automationName", "UiAutomator2");
-		caps.setCapability("app", "C:\\GitMobile\\App\\app-qa-release.apk");
-	    caps.setCapability("autoGrantPermissions", true); 
-		caps.setCapability("avd", "teste01"); 
+	public void testFaceId() throws Exception {
+		
+		AppiumDriver driver;
+			DesiredCapabilities caps = new DesiredCapabilities();
+			caps.setCapability("platformName", "Android");
+			caps.setCapability("deviceName", "emulator-5554");
+			caps.setCapability("automationName", "UiAutomator2");
+			caps.setCapability("app", "C:\\GitMobile\\App\\app-qa-release.apk");
+			caps.setCapability("autoGrantPermissions", true);
+			caps.setCapability("avd", "teste01");
 
-        try { 
-        	
-            driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), caps);
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			try {
 
-            driver.executeScript("mobile:enrollBiometric", ImmutableMap.of("isEnabled", true));
+				driver = ThreadDriver.getTDriver();
+				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+				
+				//driver.executeScript("mobile:enrollBiometric", ImmutableMap.of("isEnabled", true));
 
-            //Perform passing faceid authentication
-            driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", true));
+				// Perform passing faceid authentication
+				driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", true));
 
-            //Perform failing faceid authentication
-            driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", false));
-            Thread.sleep(2000);
-        }catch (Exception ex){ 
-            ex.printStackTrace();
-        }finally {
-            driver.quit();
-        }
-    }
-}
+				// Perform failing faceid authentication
+				driver.executeScript("mobile:sendBiometricMatch", ImmutableMap.of("type", "touchId", "match", false));
+				Thread.sleep(2000);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
