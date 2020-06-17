@@ -217,7 +217,7 @@ public class Utils {
 	@SuppressWarnings("rawtypes")
 	public static void swipeBiometriaFacial() throws Exception {
 
-		for (int x = 0; x <= 6; x++) {
+		for (int x = 0; x <= 7; x++) {
 
 			Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
 			int widthStart = (int) (size.getHeight() / 2);
