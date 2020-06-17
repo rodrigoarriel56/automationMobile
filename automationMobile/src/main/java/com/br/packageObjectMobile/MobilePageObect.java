@@ -1,4 +1,4 @@
-package screens;
+package com.br.packageObjectMobile;
 
 
 import java.net.URL;
@@ -17,21 +17,24 @@ import suporte.FaceIdTest;
 import suporte.Utils;
 
 
-public class OnboardingScreen extends BaseScreen {
+public class MobilePageObect extends BaseScreen {
 	
 	@SuppressWarnings("rawtypes")
 	AppiumDriver driver;
 	
 	FaceIdTest faceid = new FaceIdTest();
 	
-	public OnboardingScreen (AppiumDriver<MobileElement> driver) throws Exception {
+	public MobilePageObect (AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
 	}
 
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Abrir minha conta Midway']")
+	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.TextView[@text='Abrir minha conta Midway']")
 	public MobileElement btnAbrirMinhaContaMidway;
-
+	
+	@AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+	public MobileElement btnPermitir;
+	
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar']")
 	public MobileElement btnEntrar;
 
@@ -70,15 +73,19 @@ public class OnboardingScreen extends BaseScreen {
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(10000);
 		btnAbrirMinhaContaMidway.click();
+		Thread.sleep(2000);
+		btnPermitir.click();
 		Thread.sleep(1000); 
 
 	}
-
+	
+	/* Metodo de clicar no botão Entrar da pagina inicial do App da Midway **/
 	public void clicarBotaoEntrar() throws InterruptedException {
 		Thread.sleep(1000);
 		btnEntrar.click();
 	}
-
+	
+	/* Metodo de preenchimento do campo CPF **/
 	public void escreverCpf(String CPF) throws InterruptedException {
 
 		Thread.sleep(10000);  
@@ -92,6 +99,7 @@ public class OnboardingScreen extends BaseScreen {
 	}
 
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
+		Thread.sleep(3000);
 
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		btnContinuar.click();
@@ -127,10 +135,14 @@ public class OnboardingScreen extends BaseScreen {
 	public void swipeScreenFaceId() throws Exception {
 		
 		Utils.swipeBiometriaFacial();
+		btnPermitir.click();
+		Thread.sleep(2000);
 		btnContinuar.click(); 
 		Thread.sleep(1000);
 		
-		touchId.click();
+		//Colocar a chamada da API de biomegtria
+		
+		touchId.click(); //botão da camera
 		Thread.sleep(1000);
 		btnContinuar.click(); 
 		Thread.sleep(10000);

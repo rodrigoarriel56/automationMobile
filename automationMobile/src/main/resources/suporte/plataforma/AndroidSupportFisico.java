@@ -19,7 +19,7 @@ public class AndroidSupportFisico implements IPlatform {
 		DesiredCapabilities caps = new DesiredCapabilities();
 
 		caps.setCapability("platformName", "Android");
-		caps.setCapability("deviceName", "Android");
+		caps.setCapability("deviceName", "H1AXB601D953PN8");
 		caps.setCapability("automationName", "UiAutomator2");
 		caps.setCapability("appPackage", "com.midway.bank.MainActivity");
 		caps.setCapability("appActivity", "com.midway.bank.MainActivity.MainActivity");
