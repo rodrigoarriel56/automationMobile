@@ -3,17 +3,13 @@ package com.br.packageObjectMobile;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import screens.base.BaseScreen;
-import suporte.FaceIdTest;
 import suporte.Utils;
 
 
@@ -22,7 +18,6 @@ public class MobilePageObect extends BaseScreen {
 	@SuppressWarnings("rawtypes")
 	AppiumDriver driver;
 	
-	FaceIdTest faceid = new FaceIdTest();
 	
 	public MobilePageObect (AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
