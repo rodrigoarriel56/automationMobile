@@ -9,12 +9,12 @@ import cucumber.api.junit.Cucumber;
 import suporte.driver.ThreadDriver;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/java/tests/cucumber/features/ContaSimples.feature", glue = "tests.cucumber.steps", tags = {"@INTEIROS"})
+@CucumberOptions(features = "src/test/java/features/ContaSimples.feature", glue = "tests.cucumber.steps", tags = {"@INTEIROS"})
 public class StartTest {
 
 	@BeforeClass 
 	public static void setup() throws Exception {
-		//Carregar parametros para a execução de toda feature
+		//Carregar parametros para a execuï¿½ï¿½o de toda feature
 	} 
 
 	@AfterClass 

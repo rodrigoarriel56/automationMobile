@@ -31,7 +31,7 @@ public class OnboardingSteps extends BaseSteps {
 		new MobilePageObect(ThreadDriver.getTDriver()).clicarContinuar();
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverComoQuerSerChamado("Rodrigo Deus");
-		new MobilePageObect(ThreadDriver.getTDriver()).escreverCelular("11972563388");
+		new MobilePageObect(ThreadDriver.getTDriver()).escreverCelular("11974262854");
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverEmail("rodrigo.florindo@gmail.com");
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverDataNascimento("11121988");
 		new MobilePageObect(ThreadDriver.getTDriver()).swipeScreenFaceId();

@@ -73,7 +73,7 @@ public class MobilePageObect extends BaseScreen {
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(10000);
 		btnAbrirMinhaContaMidway.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		btnPermitir.click();
 		Thread.sleep(1000); 
 
@@ -88,7 +88,7 @@ public class MobilePageObect extends BaseScreen {
 	/* Metodo de preenchimento do campo CPF **/
 	public void escreverCpf(String CPF) throws InterruptedException {
 
-		Thread.sleep(10000);  
+		Thread.sleep(1000);  
 		inputTextCpf.sendKeys(CPF); 
 
 	}
@@ -99,11 +99,10 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
-		Thread.sleep(3000);
-
+		Thread.sleep(1000);
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		btnContinuar.click();
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 
 	}
 
@@ -139,13 +138,17 @@ public class MobilePageObect extends BaseScreen {
 		Thread.sleep(2000);
 		btnContinuar.click(); 
 		Thread.sleep(1000);
-		
-		//Colocar a chamada da API de biomegtria
-		
 		touchId.click(); //botão da camera
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		btnContinuar.click(); 
-		Thread.sleep(10000);
+		Thread.sleep(1000);
+	}
+	
+	//Colocar a chamada da API de biomegtria
+	
+	public void senhaUsuario() throws Exception {
+		
+		
 		
 
 	}
