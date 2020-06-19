@@ -15,7 +15,7 @@ public class MobilePageObect extends BaseScreen {
 	public MobilePageObect(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
-	}
+	} 
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == ")
 	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.TextView[@text='Abrir minha conta Midway']")
