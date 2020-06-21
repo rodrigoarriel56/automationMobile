@@ -15,7 +15,7 @@ public class MobilePageObect extends BaseScreen {
 	public MobilePageObect(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
-	} 
+	}
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == ")
 	@AndroidFindBy(xpath = "//android.view.ViewGroup//android.widget.TextView[@text='Abrir minha conta Midway']")
@@ -96,6 +96,9 @@ public class MobilePageObect extends BaseScreen {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Aceitar Conta Simples']")
 	public MobileElement btnAceitarContaSimples;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Continuar para Conta Corrente']")
+	public MobileElement btnContinuarParaContaCorrente;
+
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar no aplicativo']")
 	public MobileElement btnEntrarNoAplicativo;
 
@@ -116,9 +119,12 @@ public class MobilePageObect extends BaseScreen {
 
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
 	public MobileElement inputEstadoExpedidor;
-	
+
 	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='S√O PAULO']")
 	public MobileElement listaEstado;
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Tirar foto do documento']")
+	public MobileElement btnTirarFotoDocumento;
 
 	/**
 	 * Metodo inicial do app para clicar no bot„o Minha conta
@@ -169,8 +175,8 @@ public class MobilePageObect extends BaseScreen {
 			Thread.sleep(1000);
 
 		} else
-			
-		{ 
+
+		{
 			Globals.PLATAFORMA.equals("Android");
 
 			btnContinuar.click();
@@ -250,6 +256,7 @@ public class MobilePageObect extends BaseScreen {
 		Thread.sleep(2000);
 		btnContinuar.click();
 		Thread.sleep(1000);
+		
 		touchId.click(); // bot√£o da camera
 		Thread.sleep(5000);
 		btnContinuar.click();
@@ -401,13 +408,25 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * MÈtodo para validar click bot„o Abrir minha Conta Midway
+	 * MÈtodo para validar click bot„o Aceitar Conta Simples
 	 */
 
 	// Bot„o Aceitar Conta Simples
 	public void AceitarContaSimples() throws Exception {
 
-		btnAbrirMinhaContaMidway.click();
+		btnAceitarContaSimples.click();
+
+	}
+	
+
+	/**
+	 * MÈtodo para validar click bot„o Aceitar Conta Simples
+	 */
+
+    // Bot„o Continuar para Conta Corrente
+	public void ContinuarParaContaCorrente() throws Exception {
+
+		btnContinuarParaContaCorrente.click();
 
 	}
 
@@ -492,7 +511,8 @@ public class MobilePageObect extends BaseScreen {
 
 	/**
 	 * Metodo ira inserir campo ”rg„o expedidor
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 
 	// Campo Estado expedidor
@@ -503,5 +523,32 @@ public class MobilePageObect extends BaseScreen {
 		listaEstado.click();
 
 	}
+	
+	/**
+	 * Metodo ira clicar no carrossel para tirar fotos dos documentos
+	 * 
+	 * @throws Exception
+	 */
+
+	// Botao Tirar Foto Documento 
+	public void TirarFotoDocumento() throws Exception {
+
+		btnTirarFotoDocumento.click();
+		Utils.swipeHorizontalParaEquerdaFotoDocumento();
+		btnContinuar.click();
+		
+		touchId.click(); // bot√£o da camera
+		Thread.sleep(2000);
+		
+		touchId.click(); // bot√£o da camera
+		Thread.sleep(2000);
+		
+		btnContinuar.click();
+		Thread.sleep(1000);
+
+	} 
+	
+	
+	
 
 }

@@ -271,6 +271,21 @@ public class Utils {
 			Thread.sleep(Globals.TIMEOUT_SMALL);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public static void swipeHorizontalParaEquerdaFotoDocumento() throws Exception {
+
+		Dimension size = ThreadDriver.getTDriver().manage().window().getSize();
+		int widthStart = (int) (size.getWidth() * 0.4);
+		int heightStart = (size.getHeight() / 2);
+
+		TouchAction actions = new TouchAction(ThreadDriver.getTDriver());
+		actions.press(PointOption.point(widthStart, heightStart))
+				.waitAction(WaitOptions.waitOptions(ofMillis(miliseconds))).moveTo(PointOption.point(10, heightStart))
+				.release().perform();
+
+		Thread.sleep(Globals.TIMEOUT_SMALL);
+	}
 
 	
 }
