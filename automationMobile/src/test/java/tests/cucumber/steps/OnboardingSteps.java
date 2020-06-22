@@ -16,11 +16,19 @@ public class OnboardingSteps extends BaseSteps {
 		initializeCucumber();
 	}
 
-	@Dado("que estou no app conta midway")
-	public void que_estou_no_app_conta_midway() throws Exception {
+	@Dado("que estou no app do banco midway")
+	public void que_estou_no_app_do_banco_midway() throws Exception {
 
 		new MobilePageObect(ThreadDriver.getTDriver()).clicarBotaoMinhaConta();
+		new MobilePageObect(ThreadDriver.getTDriver()).clicarBotaoEntrar();
 
+	}
+	
+	@Quando("preencho o campo CPF")
+	public void preencho_o_campo_CPF() throws Exception
+	{
+		new MobilePageObect(ThreadDriver.getTDriver()).escreverCpf("98051973011");
+		
 	}
 
 	@Quando("clico em abrir minha conta midway")

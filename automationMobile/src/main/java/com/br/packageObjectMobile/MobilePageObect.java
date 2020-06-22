@@ -1,3 +1,10 @@
+/**
+* @author: Rodrigo Florindo de Deus
+* CriaÃ§Ã£o: 18/06/2020
+* Classe: Classe de mapeamento de objectos do App do banco
+* Finalidade: Temos todos os obejectos do App do banco mapeados na mesma classe.
+*/
+
 package com.br.packageObjectMobile;
 
 import constants.Globals;
@@ -102,7 +109,7 @@ public class MobilePageObect extends BaseScreen {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar no aplicativo']")
 	public MobileElement btnEntrarNoAplicativo;
 
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text='começar']")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='comeï¿½ar']")
 	public MobileElement btncomecarMigracaoConta;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='RG']")
@@ -120,22 +127,20 @@ public class MobilePageObect extends BaseScreen {
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
 	public MobileElement inputEstadoExpedidor;
 
-	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='SÃO PAULO']")
+	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='Sï¿½O PAULO']")
 	public MobileElement listaEstado;
 	
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Tirar foto do documento']")
 	public MobileElement btnTirarFotoDocumento;
 
 	/**
-	 * Metodo inicial do app para clicar no botão Minha conta
+	 * Metodo inicial do app para clicar no botï¿½o Minha conta
 	 */
-
-	// Boão Minha Conta
 	public void clicarBotaoMinhaConta() throws InterruptedException {
 		Thread.sleep(10000);
 		btnAbrirMinhaContaMidway.click();
 		Thread.sleep(1000);
-//		btnPermitir.click();
+		btnPermitir.click();
 		Thread.sleep(1000);
 
 	}
@@ -143,8 +148,6 @@ public class MobilePageObect extends BaseScreen {
 	/**
 	 * Metodo de preenchimento do campo CPF
 	 */
-
-	/* Metodo de clicar no botÃ£o Entrar da pagina inicial do App da Midway **/
 	public void clicarBotaoEntrar() throws InterruptedException {
 		Thread.sleep(1000);
 		btnEntrar.click();
@@ -153,8 +156,6 @@ public class MobilePageObect extends BaseScreen {
 	/**
 	 * Metodo de preenchimento do campo CPF
 	 */
-
-	/* Metodo de preenchimento do campo CPF **/
 	public void escreverCpf(String CPF) throws InterruptedException {
 
 		Thread.sleep(1000);
@@ -163,10 +164,9 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método ira fazer click do botão continuar
+	 * Metodo ira fazer click do botao continuar
+	 * Neste metodo, estamos validando se os testes estÃ£o sendo executados no Android ou no iOS
 	 */
-
-	// Botão Continuar
 	public void clicarContinuar() throws InterruptedException {
 
 		if (Globals.PLATAFORMA_IOS.equals("iOS")) {
@@ -186,23 +186,18 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método ira fazer input do campo Nome
+	 * Metodo ira fazer input do campo Nome
 	 */
-
-	// Campo Nome
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
 		Thread.sleep(1000);
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		btnContinuar.click();
 		Thread.sleep(1000);
-
-	}
+		}
 
 	/**
-	 * Método ira fazer input do campo Como quer ser Chamado
+	 * Mï¿½todo ira fazer input do campo Como quer ser Chamado
 	 */
-
-	// Campo Como quer ser Chamado
 	public void escreverComoQuerSerChamado(String ComoQuerSerChamado) throws InterruptedException {
 
 		inputTexComoQuerSerChamado.sendKeys(ComoQuerSerChamado);
@@ -210,49 +205,39 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método ira fazer input do campo celular
+	 * Mï¿½todo ira fazer input do campo celular
 	 */
-
-	// Campo celular
 	public void escreverCelular(String Celular) throws InterruptedException {
 
 		inputTexCelular.sendKeys(Celular);
-
-	}
+		}
 
 	/**
-	 * Método ira fazer input do campo e-mail
+	 * Mï¿½todo ira fazer input do campo e-mail
 	 */
-
-	// Campo E-mail
 	public void escreverEmail(String Email) throws InterruptedException {
 
 		inputTexEmail.sendKeys(Email);
-
-	}
+		}
 
 	/**
-	 * Método ira escrever data de nascimento e fazer rolagem até clicar no botão
+	 * Mï¿½todo ira escrever data de nascimento e fazer rolagem atï¿½ clicar no botï¿½o
 	 * continuar
 	 */
-
-	// Campo Data de Nascimento
 	public void escreverDataNascimento(String DataNascimento) throws Exception {
 
 		inputTexDataNascimento.sendKeys(DataNascimento);
 		Utils.swipeVerticalParaBaixo();
 		btnContinuar.click();
-	}
+		}
 
 	/**
-	 * Método que ira passar pela Biometria-Facial
+	 * Mï¿½todo que ira passar pela Biometria-Facial
 	 */
-
-	// Swipe FaceId
 	public void swipeScreenFaceId() throws Exception {
 
 		Utils.swipeBiometriaFacial();
-//		btnPermitir.click();
+		btnPermitir.click();
 		Thread.sleep(2000);
 		btnContinuar.click();
 		Thread.sleep(1000);
@@ -263,73 +248,58 @@ public class MobilePageObect extends BaseScreen {
 		Thread.sleep(1000);
 	}
 
-	// Colocar a chamada da API de biomegtria
-
 	/**
-	 * Método para incluir primeiro campo do token
+	 * Mï¿½todo para incluir primeiro campo do token
 	 */
-
-	// Primeiro campo Token
 	public void inserirToken1(String token1) throws Exception {
 
 		tokenInput1.sendKeys();
 	}
 
 	/**
-	 * Método para incluir segundo campo do token
+	 * Mï¿½todo para incluir segundo campo do token
 	 */
-
-	// Segundo campo Token
 	public void inserirToken2(String token2) throws Exception {
 
 		tokenInput2.sendKeys();
 	}
 
+	
 	/**
-	 * Método para incluir terceiro campo do token
+	 * Mï¿½todo para incluir terceiro campo do token
 	 */
-
-	// Terceiro campo Token
 	public void inserirToken3(String token3) throws Exception {
 
 		tokenInput3.sendKeys();
 	}
 
 	/**
-	 * Método para incluir quarto campo do token
+	 * Mï¿½todo para incluir quarto campo do token
 	 */
-
-	// Quarto campo Token
 	public void inserirToken4(String token4) throws Exception {
 
 		tokenInput4.sendKeys();
 	}
 
 	/**
-	 * Método para incluir quinto campo do token
+	 * Mï¿½todo para incluir quinto campo do token
 	 */
-
-	// Quinto campo Token
 	public void inserirToken5(String token5) throws Exception {
 
 		tokenInput5.sendKeys();
 	}
 
 	/**
-	 * Método para incluir sexto campo do token
+	 * Mï¿½todo para incluir sexto campo do token
 	 */
-
-	// Sexto campo Token
 	public void inserirToken6(String token6) throws Exception {
 
 		tokenInput6.sendKeys();
 	}
 
 	/**
-	 * Método para incluir primeiro campo da senha
+	 * Mï¿½todo para incluir primeiro campo da senha
 	 */
-
-	// Senha do Usuário primeiro campo
 	public void inserirSenha1(String senha) throws Exception {
 
 		senhaInput1.sendKeys(senha);
@@ -337,10 +307,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para incluir segundo campo da senha
+	 * Mï¿½todo para incluir segundo campo da senha
 	 */
-
-	// Senha do Usuário segundo campo
 	public void inserirSenha2(String senha) throws Exception {
 
 		senhaInput2.sendKeys(senha);
@@ -348,10 +316,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para incluir terceiro campo da senha
+	 * Mï¿½todo para incluir terceiro campo da senha
 	 */
-
-	// Senha do Usuário terceiro campo
 	public void inserirSenha3(String senha) throws Exception {
 
 		senhaInput3.sendKeys(senha);
@@ -359,10 +325,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para incluir quarto campo da senha
+	 * Mï¿½todo para incluir quarto campo da senha
 	 */
-
-	// Senha do Usuário quarto campo
 	public void inserirSenha4(String senha) throws Exception {
 
 		senhaInput4.sendKeys(senha);
@@ -370,10 +334,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para incluir quinto campo da senha
+	 * Mï¿½todo para incluir quinto campo da senha
 	 */
-
-	// Senha do Usuário quinto campo
 	public void inserirSenha5(String senha) throws Exception {
 
 		senhaInput5.sendKeys(senha);
@@ -381,10 +343,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para incluir sexto campo da senha
+	 * Mï¿½todo para incluir sexto campo da senha
 	 */
-
-	// Senha do Usuário sexto campo
 	public void inserirSenha6(String senha) throws Exception {
 
 		senhaInput5.sendKeys(senha);
@@ -392,10 +352,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para validar se senha é mesma que foi digitada na tela anterior
+	 * Mï¿½todo para validar se senha ï¿½ mesma que foi digitada na tela anterior
 	 */
-
-	// Inserir Senha novamente
 	public void inserirSenhaNovamente(String senha) throws Exception {
 
 		inserirSenha1(senha);
@@ -408,10 +366,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para validar click botão Aceitar Conta Simples
+	 * Mï¿½todo para validar click botï¿½o Aceitar Conta Simples
 	 */
-
-	// Botão Aceitar Conta Simples
 	public void AceitarContaSimples() throws Exception {
 
 		btnAceitarContaSimples.click();
@@ -420,10 +376,8 @@ public class MobilePageObect extends BaseScreen {
 	
 
 	/**
-	 * Método para validar click botão Aceitar Conta Simples
+	 * Mï¿½todo para validar click botï¿½o Aceitar Conta Simples
 	 */
-
-    // Botão Continuar para Conta Corrente
 	public void ContinuarParaContaCorrente() throws Exception {
 
 		btnContinuarParaContaCorrente.click();
@@ -431,10 +385,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para validar click botão continuar com conta-simples
+	 * Mï¿½todo para validar click botï¿½o continuar com conta-simples
 	 */
-
-	// Botão Continuar Conta Simples
 	public void ContinuarContaSimples() throws Exception {
 
 		btnContinuar.click();
@@ -442,10 +394,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para validar click botão Enntrar no Aplicativo
+	 * Mï¿½todo para validar click botï¿½o Enntrar no Aplicativo
 	 */
-
-	// Botão Entrar no aplicativo
 	public void EntrarNoAplicativo() throws Exception {
 
 		btnEntrarNoAplicativo.click();
@@ -454,11 +404,9 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Método para validar botão para fluxo de Migração de Conta-Pagamento para
+	 * Mï¿½todo para validar botï¿½o para fluxo de Migraï¿½ï¿½o de Conta-Pagamento para
 	 * Conta-Corrente
 	 */
-
-	// Botão começar
 	public void migracaoContaPagamento() throws Exception {
 
 		btncomecarMigracaoConta.click();
@@ -467,20 +415,16 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Metodo ira efetuar click no botão RG
+	 * Metodo ira efetuar click no botï¿½o RG
 	 */
-
-	// Botão RH
 	public void clicarBotaoRH() throws InterruptedException {
 
 		btnRG.click();
 	}
 
 	/**
-	 * Metodo ira inserir campo Número do documento
+	 * Metodo ira inserir campo Nï¿½mero do documento
 	 */
-
-	// Campo Número do documento
 	public void inserirNumeroDocumento(String NumeroDocumento) throws InterruptedException {
 
 		inputNumeroDocumento.click();
@@ -488,11 +432,9 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Metodo ira inserir campo Data de expedição
+	 * Metodo ira inserir campo Data de expediï¿½ï¿½o
 	 */
-
-	// Campo Data de expedição
-	public void inserirDataExpedição(String data) throws InterruptedException {
+	public void inserirDataExpedicao(String data) throws InterruptedException {
 
 		inputDataExpedicao.click();
 		inputDataExpedicao.sendKeys(data);
@@ -501,8 +443,6 @@ public class MobilePageObect extends BaseScreen {
 	/**
 	 * Metodo ira inserir campo Estado expedidor
 	 */
-
-	// Campo Estado expedidor
 	public void inserirEstadoExpedidor(String orgaoExpedidor) throws InterruptedException {
 
 		inputOrgaoExpedidor.click();
@@ -510,12 +450,10 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Metodo ira inserir campo Órgão expedidor
+	 * Metodo ira inserir campo ï¿½rgï¿½o expedidor
 	 * 
 	 * @throws Exception
 	 */
-
-	// Campo Estado expedidor
 	public void inputEstadoExpedidor(String estadoExpedidor) throws Exception {
 
 		inputEstadoExpedidor.click();
@@ -529,8 +467,6 @@ public class MobilePageObect extends BaseScreen {
 	 * 
 	 * @throws Exception
 	 */
-
-	// Botao Tirar Foto Documento 
 	public void TirarFotoDocumento() throws Exception {
 
 		btnTirarFotoDocumento.click();
