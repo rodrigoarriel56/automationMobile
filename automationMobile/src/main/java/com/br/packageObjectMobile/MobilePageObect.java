@@ -129,7 +129,7 @@ public class MobilePageObect extends BaseScreen {
 
 	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='S�O PAULO']")
 	public MobileElement listaEstado;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Tirar foto do documento']")
 	public MobileElement btnTirarFotoDocumento;
 
@@ -137,10 +137,11 @@ public class MobilePageObect extends BaseScreen {
 	 * Metodo inicial do app para clicar no bot�o Minha conta
 	 */
 	public void clicarBotaoMinhaConta() throws InterruptedException {
-		Thread.sleep(10000);
+		
+		Thread.sleep(20000);
 		btnAbrirMinhaContaMidway.click();
 		Thread.sleep(1000);
-		btnPermitir.click();
+	//	btnPermitir.click();
 		Thread.sleep(1000);
 
 	}
@@ -164,24 +165,13 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * Metodo ira fazer click do botao continuar
-	 * Neste metodo, estamos validando se os testes estão sendo executados no Android ou no iOS
+	 * Metodo ira fazer click do botao continuar Neste metodo, estamos validando se
+	 * os testes estão sendo executados no Android ou no iOS
 	 */
 	public void clicarContinuar() throws InterruptedException {
 
-		if (Globals.PLATAFORMA_IOS.equals("iOS")) {
-
-			btnContinuar.click();
-			Thread.sleep(1000);
-
-		} else
-
-		{
-			Globals.PLATAFORMA.equals("Android");
-
-			btnContinuar.click();
-
-		}
+		btnContinuar.click();
+		Thread.sleep(1000);
 
 	}
 
@@ -189,11 +179,11 @@ public class MobilePageObect extends BaseScreen {
 	 * Metodo ira fazer input do campo Nome
 	 */
 	public void escreverNome(String NomeCompleto) throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		inputTextNomeCompleto.sendKeys(NomeCompleto);
 		btnContinuar.click();
 		Thread.sleep(1000);
-		}
+	}
 
 	/**
 	 * M�todo ira fazer input do campo Como quer ser Chamado
@@ -210,7 +200,7 @@ public class MobilePageObect extends BaseScreen {
 	public void escreverCelular(String Celular) throws InterruptedException {
 
 		inputTexCelular.sendKeys(Celular);
-		}
+	}
 
 	/**
 	 * M�todo ira fazer input do campo e-mail
@@ -218,18 +208,18 @@ public class MobilePageObect extends BaseScreen {
 	public void escreverEmail(String Email) throws InterruptedException {
 
 		inputTexEmail.sendKeys(Email);
-		}
+	}
 
 	/**
-	 * M�todo ira escrever data de nascimento e fazer rolagem at� clicar no bot�o
-	 * continuar
+	 * M�todo ira escrever data de nascimento e fazer rolagem at� clicar no
+	 * bot�o continuar
 	 */
 	public void escreverDataNascimento(String DataNascimento) throws Exception {
 
 		inputTexDataNascimento.sendKeys(DataNascimento);
 		Utils.swipeVerticalParaBaixo();
 		btnContinuar.click();
-		}
+	}
 
 	/**
 	 * M�todo que ira passar pela Biometria-Facial
@@ -237,11 +227,11 @@ public class MobilePageObect extends BaseScreen {
 	public void swipeScreenFaceId() throws Exception {
 
 		Utils.swipeBiometriaFacial();
-		btnPermitir.click();
+	//	btnPermitir.click();
 		Thread.sleep(2000);
 		btnContinuar.click();
 		Thread.sleep(1000);
-		
+
 		touchId.click(); // botão da camera
 		Thread.sleep(5000);
 		btnContinuar.click();
@@ -264,7 +254,6 @@ public class MobilePageObect extends BaseScreen {
 		tokenInput2.sendKeys();
 	}
 
-	
 	/**
 	 * M�todo para incluir terceiro campo do token
 	 */
@@ -373,7 +362,6 @@ public class MobilePageObect extends BaseScreen {
 		btnAceitarContaSimples.click();
 
 	}
-	
 
 	/**
 	 * M�todo para validar click bot�o Aceitar Conta Simples
@@ -404,8 +392,8 @@ public class MobilePageObect extends BaseScreen {
 	}
 
 	/**
-	 * M�todo para validar bot�o para fluxo de Migra��o de Conta-Pagamento para
-	 * Conta-Corrente
+	 * M�todo para validar bot�o para fluxo de Migra��o de Conta-Pagamento
+	 * para Conta-Corrente
 	 */
 	public void migracaoContaPagamento() throws Exception {
 
@@ -461,7 +449,7 @@ public class MobilePageObect extends BaseScreen {
 		listaEstado.click();
 
 	}
-	
+
 	/**
 	 * Metodo ira clicar no carrossel para tirar fotos dos documentos
 	 * 
@@ -472,19 +460,16 @@ public class MobilePageObect extends BaseScreen {
 		btnTirarFotoDocumento.click();
 		Utils.swipeHorizontalParaEquerdaFotoDocumento();
 		btnContinuar.click();
-		
+
 		touchId.click(); // botão da camera
 		Thread.sleep(2000);
-		
+
 		touchId.click(); // botão da camera
 		Thread.sleep(2000);
-		
+
 		btnContinuar.click();
 		Thread.sleep(1000);
 
-	} 
-	
-	
-	
+	}
 
 }
