@@ -22,7 +22,7 @@ public class IosSupport implements IPlatform {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 8");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 11");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
 
         ThreadDriver.setTDriver(new IOSDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), caps));

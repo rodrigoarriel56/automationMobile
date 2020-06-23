@@ -1,7 +1,6 @@
 package tests.cucumber.steps;
 
 import com.br.packageObjectMobile.MobilePageObect;
-import com.google.common.collect.ImmutableMap;
 
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Dado;
@@ -24,17 +23,9 @@ public class OnboardingSteps extends BaseSteps {
 
 	}
 	
-	@Quando("preencho o campo CPF")
-	public void preencho_o_campo_CPF() throws Exception
-	{
-		new MobilePageObect(ThreadDriver.getTDriver()).escreverCpf("98051973011");
-		
-	}
-
 	@Quando("clico em abrir minha conta midway")
 	public void clico_em_abrir_minha_conta_midway() throws Exception {
 
-		new MobilePageObect(ThreadDriver.getTDriver()).clicarBotaoEntrar();
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverCpf("98051973011");
 		new MobilePageObect(ThreadDriver.getTDriver()).clicarContinuar();
 		new MobilePageObect(ThreadDriver.getTDriver()).escreverNome("Rodrigo de Deus");
@@ -45,8 +36,5 @@ public class OnboardingSteps extends BaseSteps {
 		new MobilePageObect(ThreadDriver.getTDriver()).swipeScreenFaceId();
 
 	}
-
-	
-	}
-
+}
 
