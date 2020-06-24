@@ -467,7 +467,7 @@ public class MobileOnboarding extends BaseScreen {
 		Thread.sleep(2000);
 
 		btnContinuar.click();
-		Thread.sleep(1000); 
+		Thread.sleep(1000);  
 
 	}
 
