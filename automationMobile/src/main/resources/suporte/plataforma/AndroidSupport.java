@@ -19,13 +19,13 @@ public class AndroidSupport implements IPlatform {
 		DesiredCapabilities caps = new DesiredCapabilities();
 
 		caps.setCapability("platformName", "Android"); 
-		caps.setCapability("deviceName", "H1AXB601D953PN8"); 
+		caps.setCapability("deviceName", "emulador-5554"); 
 		caps.setCapability("automationName", "UiAutomator2");
-		caps.setCapability("app", "C:\\GitMobile\\App\\app-qa-release.apk");
+		caps.setCapability("app", "/Users/60003339/git/FrameworkMobile/automationMobile/App/Android/app-qa-release0.64.0.apk");
 	//	caps.setCapability("appPackage", "com.midway.bank.MainActivity");
 	//	caps.setCapability("appActivity", "com.midway.bank.MainActivity.MainActivity");
-	    caps.setCapability("autoGrantPermissions", true);
-		caps.setCapability("avd", "teste02"); 
+	//    caps.setCapability("autoGrantPermissions", true);
+	//	caps.setCapability("avd", "teste02"); 
 		
 		ThreadDriver.setTDriver(new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), caps));
 		wait = new WebDriverWait(ThreadDriver.getTDriver(), 10);
