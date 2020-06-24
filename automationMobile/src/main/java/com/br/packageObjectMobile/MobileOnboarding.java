@@ -15,11 +15,11 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import screens.base.BaseScreen;
 import suporte.Utils;
 
-public class MobilePageObect extends BaseScreen {
+public class MobileOnboarding extends BaseScreen {
 
 	Globals globals = new Globals();
 
-	public MobilePageObect(AppiumDriver<MobileElement> driver) throws Exception {
+	public MobileOnboarding(AppiumDriver<MobileElement> driver) throws Exception {
 		super(driver);
 
 	}
@@ -109,7 +109,7 @@ public class MobilePageObect extends BaseScreen {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar no aplicativo']")
 	public MobileElement btnEntrarNoAplicativo;
 
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text='começar']")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='comeï¿½ar']")
 	public MobileElement btncomecarMigracaoConta;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='RG']")
@@ -127,7 +127,7 @@ public class MobilePageObect extends BaseScreen {
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
 	public MobileElement inputEstadoExpedidor;
 
-	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='SÃO PAULO']")
+	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='Sï¿½O PAULO']")
 	public MobileElement listaEstado;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Tirar foto do documento']")
