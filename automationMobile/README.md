@@ -25,9 +25,14 @@ Observação
     
     
 -> MAC (brew install java)
+	Faça download do arquivo jre-8u65-macosx-x64.dmg.
+	Revise e concorde com os termos do contrato de licença antes de fazer o download do arquivo.
+	Clique duas vezes no arquivo .dmg para inicializá-lo
+	Clique duas vezes no ícone do pacote para iniciar o Assistente de instalação
 
-    Install Git (https://git-scm.com/downloads)
-    Install nodejs (https://nodejs.org/en/download/)
+->Install Git (https://git-scm.com/downloads)
+
+->Install nodejs (https://nodejs.org/en/download/)
 
 ## Repositorio
 

@@ -1,10 +1,15 @@
+/**
+* @author: Rodrigo Arriel
+* Criação: 24/06/2020
+* Classe: Classe de geração de numero de CPF para testes
+*/
+
 package suporte;
 
 import java.util.InputMismatchException;
-import java.util.Random;
 
 public class GeraCpf {
-
+	
 	private int randomiza(int n) {
         int ranNum = (int) (Math.random() * n);
 		return ranNum;
@@ -41,7 +46,7 @@ public class GeraCpf {
 		if (d2 >= 10)
 			d2 = 0;
 		retorno = "";
-	    
+		
 		retorno = "" + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + d1 + d2;
 
 		return retorno;
@@ -50,9 +55,9 @@ public class GeraCpf {
 	public static void main(String[] args) {
 		GeraCpf gerador = new GeraCpf();
 		String cpf = gerador.cpf(true);
-		System.out.printf("%s \n", cpf, gerador.isCPF(cpf));
-	}
+		System.out.printf(cpf, gerador.isCPF(cpf));
 
+	}
 
 	public boolean isCPF(String CPF) {
 		
@@ -71,9 +76,7 @@ public class GeraCpf {
 			sm = 0;
 			peso = 10;
 			for (i = 0; i < 9; i++) {
-				// converte o i-esimo caractere do CPF em um numero:
-				// por exemplo, transforma o caractere '0' no inteiro 0        
-				// (48 eh a posicao de '0' na tabela ASCII)        
+				        
 				num = (int) (CPF.charAt(i) - 48);
 				sm = sm + (num * peso);
 				peso = peso - 1;
