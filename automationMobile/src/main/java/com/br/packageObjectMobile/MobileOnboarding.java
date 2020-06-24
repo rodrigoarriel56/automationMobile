@@ -1,6 +1,6 @@
 /**
 * @author: Rodrigo Florindo de Deus
-* CriaÃ§Ã£o: 18/06/2020
+* Criação: 18/06/2020
 * Classe: Classe de mapeamento de objectos do App do banco
 * Finalidade: Temos todos os obejectos do App do banco mapeados na mesma classe.
 */
