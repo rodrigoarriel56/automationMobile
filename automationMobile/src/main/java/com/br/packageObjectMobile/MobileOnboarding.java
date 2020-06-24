@@ -109,13 +109,13 @@ public class MobileOnboarding extends BaseScreen {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Entrar no aplicativo']")
 	public MobileElement btnEntrarNoAplicativo;
 
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text='comeï¿½ar']")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='começar']")
 	public MobileElement btncomecarMigracaoConta;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='RG']")
 	public MobileElement btnRG;
 
-	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[1]")
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.TextView)[1]")
 	public MobileElement inputNumeroDocumento;
 
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[2]")
@@ -127,17 +127,77 @@ public class MobileOnboarding extends BaseScreen {
 	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
 	public MobileElement inputEstadoExpedidor;
 
-	@AndroidFindBy(xpath = "(//android.widget.TextView[@text='Sï¿½O PAULO']")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='SãO PAULO']")
 	public MobileElement listaEstado;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Tirar foto do documento']")
 	public MobileElement btnTirarFotoDocumento;
 
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[2]")
+	public MobileElement inputNomeDamea;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
+	public MobileElement inputGenero;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Masculino']")
+	public MobileElement listaGenero;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[6]")
+	public MobileElement inputUfNacionalidade;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='SÃO PAULO']")
+	public MobileElement listaUfNacionalidade;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[7]")
+	public MobileElement labelNacionalidade;
+
+	@AndroidFindBy(xpath = "//android.widget.EditText[@text='Pesquisar']")
+	public MobileElement inputPesquisar;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.TextView)[1]")
+	public MobileElement btnNacionalidade;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[1]")
+	public MobileElement labelProfissao;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.TextView)[4]")
+	public MobileElement listaProfissao;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[2]")
+	public MobileElement labelCargo;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.TextView)[2]")
+	public MobileElement listaCargo;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[3]")
+	public MobileElement labelRendaMensal;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
+	public MobileElement inputPatrimonio;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[5]")
+	public MobileElement labelEstadoCivil;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.TextView)[2]")
+	public MobileElement listaEstadoCivil;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[1]")
+	public MobileElement inputCep;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[3]")
+	public MobileElement inputNumeroResidencia;
+
+	@AndroidFindBy(xpath = "(//android.view.ViewGroup//android.widget.EditText)[4]")
+	public MobileElement inputComplementoResidencia;
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text='Não, obrigado']")
+	public MobileElement btnNaoObrigado;
+
 	/**
 	 * Metodo inicial do app para clicar no botao Minha conta
 	 */
 	public void clicarBotaoMinhaConta() throws InterruptedException {
-		
+
 		Thread.sleep(20000);
 		btnAbrirMinhaContaMidway.click();
 		Thread.sleep(1000);
@@ -211,7 +271,7 @@ public class MobileOnboarding extends BaseScreen {
 	}
 
 	/**
-	 * Metodo ira escrever data de nascimento e fazer rolagem 	 * botao continuar
+	 * Metodo ira escrever data de nascimento e fazer rolagem * botao continuar
 	 */
 	public void escreverDataNascimento(String DataNascimento) throws Exception {
 
@@ -391,8 +451,8 @@ public class MobileOnboarding extends BaseScreen {
 	}
 
 	/**
-	 * Metodo para validar botao para fluxo de Migracao de Conta-Pagamento
-	 * para Conta-Corrente
+	 * Metodo para validar botao para fluxo de Migracao de Conta-Pagamento para
+	 * Conta-Corrente
 	 */
 	public void migracaoContaPagamento() throws Exception {
 
@@ -467,7 +527,184 @@ public class MobileOnboarding extends BaseScreen {
 		Thread.sleep(2000);
 
 		btnContinuar.click();
-		Thread.sleep(1000);  
+		Thread.sleep(1000);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Nome da Mãe
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirNomeDaMae(String nomeDaMae) throws Exception {
+
+		inputNomeDamea.sendKeys(nomeDaMae);
+		Utils.swipeVerticalParaBaixo();
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Genero
+	 * 
+	 * @throws Exception
+	 */
+	public void inputGenero() throws Exception {
+
+		inputGenero.click();
+		listaGenero.click();
+
+	}
+
+	/**
+	 * Metodo ira inserir campo UF da Nacionalidade
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirUfNacionalidade() throws Exception {
+
+		inputUfNacionalidade.click();
+		Utils.swipeVerticalParaBaixoLongo();
+		listaUfNacionalidade.click();
+
+		Thread.sleep(1000);
+		Utils.swipeVerticalParaBaixo();
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Nacionalidade
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirNacionalidade(String UF) throws Exception {
+
+		labelNacionalidade.click();
+		inputPesquisar.sendKeys(UF);
+		btnNacionalidade.click();
+		btnNacionalidade.click();
+
+		// Continuar
+		btnContinuar.click();
+		Thread.sleep(1000);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Profissao
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirtProfissao() throws Exception {
+
+		labelProfissao.click();
+		listaProfissao.click();
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Cargo
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirCargo() throws Exception {
+
+		labelCargo.click();
+		listaCargo.click();
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Renda Mensal
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirRendaMensal(String renda) throws Exception {
+
+		labelRendaMensal.click();
+		labelRendaMensal.clear();
+		labelRendaMensal.sendKeys(renda);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Patrimonio
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirPatrimonio(String renda) throws Exception {
+
+		inputPatrimonio.click();
+		inputPatrimonio.clear();
+		inputPatrimonio.sendKeys(renda);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo Estado Civil e clicar no botao continuar
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirEstadoCivil() throws Exception {
+
+		labelEstadoCivil.click();
+		listaEstadoCivil.click();
+		Utils.swipeVerticalParaBaixo();
+
+		btnContinuar.click();
+		Thread.sleep(1000);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo CEP
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirCep(String cep) throws Exception {
+
+		inputCep.sendKeys(cep);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo numero da residencia
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirNumeroResidencia(String numero) throws Exception {
+
+		inputNumeroResidencia.click();
+		inputNumeroResidencia.sendKeys(numero);
+
+	}
+
+	/**
+	 * Metodo ira inserir campo complemento
+	 * 
+	 * @throws Exception
+	 */
+	public void inserirComplementoResidencial(String complemento) throws Exception {
+
+		inputComplementoResidencia.click();
+		inputComplementoResidencia.sendKeys(complemento);
+		Utils.swipeVerticalParaBaixo();
+
+		btnContinuar.click();
+		Thread.sleep(1000);
+
+	}
+	
+	/**
+	 * Metodo ira confirmar endereço
+	 * 
+	 * @throws Exception
+	 */
+	public void confirmarEndereco() throws Exception {
+
+		btnContinuar.click();
+		btnNaoObrigado.click();
+		
+		Thread.sleep(200000);
 
 	}
 
